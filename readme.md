@@ -8,7 +8,7 @@ Add `vtalbot/pjax` to `require` section in your `composer.json`
 
     composer require vtalbot/pjax
 
-Add `'Vtalbot\Pjax\PjaxServiceProvider',` to `providers` in your `app/config/app.php`
+Add `'VTalbot\Pjax\PjaxServiceProvider',` to `providers` in your `app/config/app.php`
 
 #### How to use
 
