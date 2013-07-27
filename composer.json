@@ -1,0 +1,21 @@
+{
+    "name": "vtalbot/pjax",
+    "description": "PJAX for Laravel 4",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Talbot",
+            "email": "vtalbot@re-bot.co"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "VTalbot\\Pjax": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
