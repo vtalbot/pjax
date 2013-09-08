@@ -8,7 +8,7 @@ Add `simonstamm/laravel-pjax` to `require` section in your `composer.json`
 
     composer require simonstamm/laravel-pjax
 
-Add `'VTalbot\Pjax\PjaxServiceProvider',` to `providers` in your `app/config/app.php`
+Add `'SimonStamm\LaravelPjax\LaravelPjaxServiceProvider',` to `providers` in your `app/config/app.php`
 
 #### How to use
 
