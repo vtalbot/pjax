@@ -1,13 +1,13 @@
 <?php
 
-namespace VTalbot\Pjax;
+namespace SimonStamm\LaravelPjax;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Symfony\Component\DomCrawler\Crawler;
 
-class PjaxServiceProvider extends ServiceProvider {
+class LaravelPjaxServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -25,10 +25,13 @@ class PjaxServiceProvider extends ServiceProvider {
 	{
 		$app = $this->app;
 
-		$this->app->after(function(Request $request, Response $response) use ($app) {
-			if ($request->server->get('HTTP_X_PJAX')) {
-				$crawler = new Crawler($response->getContent());
-				$response->setContent($crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'))->html());
+		$this->app->after(function($request, $response) use ($app)
+		{
+			if (!$response->isRedirection()) {
+				if ($request->server->get('HTTP_X_PJAX')) {
+					$crawler = new Crawler($response->getContent());
+					$response->setContent($crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'))->html());
+				}
 			}
 
 			return $response;

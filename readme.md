@@ -1,12 +1,12 @@
 ## PJAX for Laravel 4
 
-Enable the use of PJAX in Laravel 4.
+Enable the use of PJAX in Laravel 4 with redirections.
 
 #### Installation
 
-Add `vtalbot/pjax` to `require` section in your `composer.json`
+Add `simonstamm/laravel-pjax` to `require` section in your `composer.json`
 
-    composer require vtalbot/pjax
+    composer require simonstamm/laravel-pjax
 
 Add `'VTalbot\Pjax\PjaxServiceProvider',` to `providers` in your `app/config/app.php`
 
