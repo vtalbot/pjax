@@ -27,10 +27,22 @@ class LaravelPjaxServiceProvider extends ServiceProvider {
 
 		$this->app->after(function($request, $response) use ($app)
 		{
+			// Only handle non-redirections
 			if (!$response->isRedirection()) {
+				// Must be a pjax-request
 				if ($request->server->get('HTTP_X_PJAX')) {
 					$crawler = new Crawler($response->getContent());
-					$response->setContent($crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'))->html());
+
+					// Filter to given container
+					$response_filtered = $crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'));
+
+					// Container must exist
+					if ($response_filtered->count() != 0) {
+						$response->setContent($response_filtered->html());
+					}
+
+					// Updating address bar with the last URL in case there were redirects
+					$response->header('X-PJAX-URL', $request->getRequestUri());
 				}
 			}
 
