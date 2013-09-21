@@ -45,8 +45,6 @@ class LaravelPjaxServiceProvider extends ServiceProvider {
 					$response->header('X-PJAX-URL', $request->getRequestUri());
 				}
 			}
-
-			return $response;
 		});
 	}
 
