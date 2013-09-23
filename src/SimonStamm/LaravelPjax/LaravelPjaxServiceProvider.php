@@ -33,12 +33,23 @@ class LaravelPjaxServiceProvider extends ServiceProvider {
 				if ($request->server->get('HTTP_X_PJAX')) {
 					$crawler = new Crawler($response->getContent());
 
+					// Filter to title (in order to update the browser title bar)
+					$response_title = $crawler->filter('head > title');
+
 					// Filter to given container
-					$response_filtered = $crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'));
+					$response_container = $crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'));
 
 					// Container must exist
-					if ($response_filtered->count() != 0) {
-						$response->setContent($response_filtered->html());
+					if ($response_container->count() != 0) {
+
+						$title = '';
+						// If a title-attribute exists
+						if ($response_title->count() != 0) {
+							$title = '<title>' . $response_title->html() . '</title>';
+						}
+
+						// Set new content for the response
+						$response->setContent($title . $response_container->html());
 					}
 
 					// Updating address bar with the last URL in case there were redirects
