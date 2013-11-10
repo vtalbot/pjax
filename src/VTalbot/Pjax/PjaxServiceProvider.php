@@ -3,9 +3,9 @@
 namespace VTalbot\Pjax;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PjaxServiceProvider extends ServiceProvider {
 
