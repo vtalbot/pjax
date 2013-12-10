@@ -26,9 +26,20 @@ class PjaxServiceProvider extends ServiceProvider {
 		$app = $this->app;
 
 		$this->app->after(function(Request $request, Response $response) use ($app) {
+			if ($response->isRedirection())
+			{
+				return $response;
+			}
+			
 			if ($request->server->get('HTTP_X_PJAX')) {
 				$crawler = new Crawler($response->getContent());
-				$response->setContent($crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'))->html());
+				
+				$html = $crawler->filter($request->server->get('HTTP_X_PJAX_CONTAINER'))->html();
+				$title = $crawler->filter('head title')->html();
+				
+				$response->setContent($title . $html);
+				
+				$response->header('X-PJAX-URL', $request->getRequestUri());
 			}
 
 			return $response;
