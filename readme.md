@@ -18,6 +18,8 @@ element defined by `X-PJAX-Container`'s header.
 
 Works great with [jquery.pjax.js](https://github.com/defunkt/jquery-pjax).
 
+Example project: https://github.com/vtalbot/laravel-pjax-example
+
 ### Contribution
 
 I'm open to any idea of features to add to it.
