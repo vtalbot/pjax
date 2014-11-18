@@ -1,0 +1,5 @@
+{
+  "providers": [
+    "VTalbot\\Pjax\\PjaxServiceProvider"
+  ]
+}
