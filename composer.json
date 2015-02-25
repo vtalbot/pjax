@@ -1,9 +1,14 @@
 {
-    "name": "simonstamm/laravel-pjax",
-    "description": "PJAX for Laravel 4 with redirection-support",
+    "name": "jacobbennett/pjax",
+    "description": "PJAX for Laravel 5",
     "keywords": ["pjax", "laravel"],
     "license": "MIT",
     "authors": [
+        {
+            "email": "me@jakebennett.net", 
+            "name": "Jacob Bennett",
+            "homepage": "http://jakebennett.net"
+        },
         {
             "name": "Simon Stamm",
             "email": "simon@stammtec.de"
@@ -14,12 +19,13 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "illuminate/support": "~5"
+        "php": ">=5.4.0",
+        "symfony/dom-crawler": "2.*",
+        "symfony/css-selector": "2.6.4"
     },
     "autoload": {
         "psr-0": {
-            "SimonStamm\\LaravelPjax": "src/"
+            "JacobBennett\\Pjax": "src/"
         }
     },
     "minimum-stability": "dev"
