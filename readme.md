@@ -6,7 +6,7 @@ Enable the use of PJAX in Laravel 5.
 
 Add `jacobbennett/pjax` to `require` section in your `composer.json`
 
-    composer require simonstamm/laravel-pjax
+    composer require jacobbennett/pjax
 
 Add `'JacobBennett\Pjax\PjaxMiddleware',` to `$middleware` in `app/Http/Kernel.php`
 
