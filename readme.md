@@ -2,6 +2,8 @@
 
 Enable the use of PJAX in Laravel 4.
 
+If using **Laravel 5**, please see [jacobbennett/pjax](https://github.com/JacobBennett/pjax)
+
 #### Installation
 
 Add `vtalbot/pjax` to `require` section in your `composer.json`
